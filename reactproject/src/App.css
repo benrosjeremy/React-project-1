@@ -1,38 +1,63 @@
+body {
+  align-items: center;
+}
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* עיצוב כללי של המקלדת */
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 10 עמודות */
+  gap: 10px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* עיצוב כללי של המקשים */
+.key {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 26px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.1s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* עיצוב מקשים בעת ריחוף */
+.key:hover {
+  background-color: #564c4c;
 }
 
-.App-link {
-  color: #61dafb;
+עיצוב מקשים בעת לחיצה .key:active {
+  background-color: #ddd;
+  transform: translateY(5px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* עיצוב מקשים מיוחדים */
+.key.special {
+  background-color: #ffa;
+  border: 1px solid #f90;
+}
+.output-area {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 20px auto;
+  font-size: 24px;
+  min-height: 200px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+.space {
+  grid-column: span 8;
+}
+.delete{
+  grid-column: span 2;
 }
