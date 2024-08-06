@@ -14,6 +14,8 @@ function Keybord() {
 
   const [language, setLanguage] = useState(en);
   const [input, setInput] = useState("");
+  const [fontSize, setFontSIze] = useState("20px");
+  const [fontColor, setfontColor] = useState("white");
 
   const [flag, setFlag] = useState(true);
 
@@ -22,11 +24,24 @@ function Keybord() {
       <div className="select">
         <BasicButton language={he} name="Hebrew" setLanguage={setLanguage} />
         <BasicButton language={en} name="English" setLanguage={setLanguage} />
-        <BasicButton language={special} name="Special" setLanguage={setLanguage}/>
+        <BasicButton
+          language={special}
+          name="Special"
+          setLanguage={setLanguage}
+        />
         <BasicButton language={emoji} name="emoji" setLanguage={setLanguage} />
-        <BasicButton language={numbers} name="numbers" setLanguage={setLanguage}  />
+        <BasicButton
+          language={numbers}
+          name="numbers"
+          setLanguage={setLanguage}
+        />
       </div>
-      <div className="output-area">{input}</div>
+      <div
+        className="output-area"
+        style={{ fontSize: fontSize, color: fontColor }}
+      >
+        {input}
+      </div>
 
       <div className="keyboard">
         {language.split("").map((char, i) => (
@@ -67,7 +82,35 @@ function Keybord() {
         </button>
       </div>
       <div className="select">
-
+        <label for="size">font size:</label>
+        <select
+          name="size"
+          id="size"
+          value={fontSize}
+          onChange={(event) => {
+            setFontSIze(event.target.value);
+          }}
+        >
+          <option value="24px">10</option>
+          <option value="28px">12</option>
+          <option value="32px">14</option>
+          <option value="40px">16</option>
+        </select>
+        <label for="color">color :</label>
+        <select
+          name="color"
+          id="color"
+          value={fontColor}
+          onChange={(event) => {
+            setfontColor(event.target.value);
+          }}
+        >
+          <option value="white"></option>
+          <option value="red">🔴</option>
+          <option value="blue">🔵</option>
+          <option value="yellow">🟡</option>
+          <option value="green">🟢</option>
+        </select>
       </div>
     </>
   );
