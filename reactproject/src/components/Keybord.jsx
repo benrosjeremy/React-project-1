@@ -8,12 +8,12 @@ import Stack from "@mui/material/Stack";
 import RadioButtonsGroup from "./RadioButtonsGroup";
 
 function Keybord() {
-  const en = "qwertyuiopasdfghjklzxcvbnm";
-  const EN = en.toUpperCase();
-  const he = "קראטוןםפשדגכעיחלךזסבהנמצתץ";
-  const special = "[]{}/`'.,?!@#$%^&*";
-  const emoji = "👍❤️🚗😊😀🤣😂😎😋😙😗🥰😐😕😬😩😨";
-  const numbers = "1234567890";
+  const en = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m"];
+  const EN =["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Z", "X", "C", "V", "B", "N", "M"]
+  const he = ["ק","ר", "א", "ט", "ו", "ן", "ם", "פ", "ש", "ד", "ג", "כ", "ע", "י", "ח", "ל", "ך", "ז", "ס", "ב", "ה", "נ", "מ", "צ", "ת", "ץ"];
+  const special = [ "{","}","[","]","/", "`", "'", ".", ",", "?", "!", "@", "#", "$", "%", "^", "&", "*"]
+  const emoji = ["😀", "😂", "😍", "🤔", "😎", "😭", "🤯", "🥳", "😇", "🥺", "🤓", "🤑", "🤠", "😡", "😴"];;
+  const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
   const [language, setLanguage] = useState(en);
   const [input, setInput] = useState([""]);
@@ -53,7 +53,7 @@ function Keybord() {
       </div>
 
       <div className="keyboard">
-        {language.split("").map((char, i) => (
+        {language.map((char, i) => (
           <Key key={i} char={char} input={input} setInput={setInput} />
         ))}
         <button
