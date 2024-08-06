@@ -3,6 +3,9 @@ import Key from "./Key";
 // import SelectType from "./SelectType";
 import Button from "@mui/material/Button";
 import BasicButton from "./BasicButton";
+import Stack from "@mui/material/Stack";
+
+import RadioButtonsGroup from "./RadioButtonsGroup";
 
 function Keybord() {
   const en = "qwertyuiopasdfghjklzxcvbnm";
@@ -13,7 +16,7 @@ function Keybord() {
   const numbers = "1234567890";
 
   const [language, setLanguage] = useState(en);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState([""]);
   const [fontSize, setFontSIze] = useState("20px");
   const [fontColor, setfontColor] = useState("white");
 
@@ -22,19 +25,25 @@ function Keybord() {
   return (
     <>
       <div className="select">
-        <BasicButton language={he} name="Hebrew" setLanguage={setLanguage} />
-        <BasicButton language={en} name="English" setLanguage={setLanguage} />
-        <BasicButton
-          language={special}
-          name="Special"
-          setLanguage={setLanguage}
-        />
-        <BasicButton language={emoji} name="emoji" setLanguage={setLanguage} />
-        <BasicButton
-          language={numbers}
-          name="numbers"
-          setLanguage={setLanguage}
-        />
+        <Stack spacing={2} direction="row">
+          <BasicButton language={he} name="Hebrew" setLanguage={setLanguage} />
+          <BasicButton language={en} name="English" setLanguage={setLanguage} />
+          <BasicButton
+            language={special}
+            name="Special"
+            setLanguage={setLanguage}
+          />
+          <BasicButton
+            language={emoji}
+            name="emoji"
+            setLanguage={setLanguage}
+          />
+          <BasicButton
+            language={numbers}
+            name="numbers"
+            setLanguage={setLanguage}
+          />
+        </Stack>
       </div>
       <div
         className="output-area"
@@ -81,7 +90,7 @@ function Keybord() {
           Clear
         </button>
       </div>
-      <div className="select">
+      <div className="select" style={{gap:"15px"}}>
         <label for="size">font size:</label>
         <select
           name="size"
@@ -111,6 +120,7 @@ function Keybord() {
           <option value="yellow">🟡</option>
           <option value="green">🟢</option>
         </select>
+        <RadioButtonsGroup input={input} setInput={setInput} />
       </div>
     </>
   );
