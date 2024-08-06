@@ -1,8 +1,12 @@
 body {
-  align-items: center;
 }
 .App {
   text-align: center;
+}
+.select{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* עיצוב כללי של המקלדת */
 .keyboard {
@@ -56,7 +60,7 @@ body {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 .space {
-  grid-column: span 8;
+  grid-column: span ;
 }
 .delete{
   grid-column: span 2;
