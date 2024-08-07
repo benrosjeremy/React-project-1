@@ -7,14 +7,12 @@ import FormLabel from "@mui/material/FormLabel";
 import { charsArrys } from "./charsArrys";
 
 export default function RadioButtonsGroup({ language, setLanguage }) {
-  const [value, setValue] = React.useState(charsArrys.en);
+  const [value, setValue] = React.useState("en");
 
   const handleChange = (event) => {
     setValue(event.target.value);
     // const arr =[...event.target.value]
-    // setLanguage(arr);
-    // console.log(arr);
-    
+    setLanguage(charsArrys[event.target.value]);
   };
 
   return (
@@ -27,31 +25,11 @@ export default function RadioButtonsGroup({ language, setLanguage }) {
         value={value}
         onChange={handleChange}
       >
-        <FormControlLabel
-          value={charsArrys.en}
-          control={<Radio />}
-          label="English"
-        />
-        <FormControlLabel
-          value={charsArrys.he}
-          control={<Radio />}
-          label="Hebrew"
-        />
-        <FormControlLabel
-          value={charsArrys.special}
-          control={<Radio />}
-          label="Symbol"
-        />
-        <FormControlLabel
-          value={charsArrys.emoji}
-          control={<Radio />}
-          label="Emoji"
-        />
-        <FormControlLabel
-          value={charsArrys.numbers}
-          control={<Radio />}
-          label="Numbers"
-        />
+        <FormControlLabel value="en" control={<Radio />} label="English" />
+        <FormControlLabel value="he" control={<Radio />} label="Hebrew" />
+        <FormControlLabel value="special" control={<Radio />} label="Symbol" />
+        <FormControlLabel value="emoji" control={<Radio />} label="Emoji" />
+        <FormControlLabel value="numbers" control={<Radio />} label="Numbers" />
       </RadioGroup>
     </FormControl>
   );

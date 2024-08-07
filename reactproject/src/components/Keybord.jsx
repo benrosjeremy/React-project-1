@@ -9,7 +9,7 @@ import { charsArrys } from "./charsArrys";
 
 function Keybord() {
   const [language, setLanguage] = useState(charsArrys.en);
-  
+
   const [input, setInput] = useState("");
   const [fontSize, setFontSIze] = useState("20px");
   const [fontColor, setfontColor] = useState("white");
@@ -20,33 +20,6 @@ function Keybord() {
     <>
       <div className="select">
         <RadioButtonsGroup language={language} setLanguage={setLanguage} />
-        <Stack spacing={2} direction="row">
-          <BasicButton
-            language={charsArrys.he}
-            name="Hebrew"
-            setLanguage={setLanguage}
-          />
-          <BasicButton
-            language={charsArrys.en}
-            name="English"
-            setLanguage={setLanguage}
-          />
-          <BasicButton
-            language={charsArrys.special}
-            name="Special"
-            setLanguage={setLanguage}
-          />
-          <BasicButton
-            language={charsArrys.emoji}
-            name="emoji"
-            setLanguage={setLanguage}
-          />
-          <BasicButton
-            language={charsArrys.numbers}
-            name="numbers"
-            setLanguage={setLanguage}
-          />
-        </Stack>
       </div>
       <div
         className="output-area"
@@ -59,12 +32,14 @@ function Keybord() {
         {language.map((char, i) => (
           <Key key={i} char={char} input={input} setInput={setInput} />
         ))}
+
         <button
           className="space key"
           onClick={() => {
             setInput(input + " ");
           }}
         ></button>
+
         <button
           className="backspace key"
           style={{ backgroundColor: !flag ? "#564c4c" : "#fff" }}
@@ -75,6 +50,8 @@ function Keybord() {
         >
           shift
         </button>
+
+
         <button
           className="backspace key"
           onClick={() => {
@@ -83,6 +60,7 @@ function Keybord() {
         >
           Backspace
         </button>
+        
         <button
           className="backspace key"
           onClick={() => {
@@ -93,14 +71,28 @@ function Keybord() {
           Clear
         </button>
       </div>
-      <TextStyler
-        fontSize={fontSize}
-        setFontSIze={setFontSIze}
-        fontColor={fontColor}
-        setfontColor={setfontColor}
-      />
 
-      {/* <RadioButtonsGroup input={input} setInput={setInput} /> */}
+      
+      <div style={{gap:"15px", padding:"15px"}}>
+        <Stack spacing={2} direction="row" className="select">
+          <TextStyler
+            fontSize={fontSize}
+            setFontSIze={setFontSIze}
+            fontColor={fontColor}
+            setfontColor={setfontColor}
+          />
+          <BasicButton
+            input={input.toLocaleUpperCase()}
+            name="uperr all"
+            setInput={setInput}
+          />
+          <BasicButton
+            input={input.toLocaleLowerCase()}
+            name="lower all"
+            setInput={setInput}
+          />
+        </Stack>
+      </div>
     </>
   );
 }

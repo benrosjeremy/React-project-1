@@ -1,10 +1,10 @@
 import React from "react";
 import Button from "@mui/material/Button";
 
-function BasicButton({ language, setLanguage, name }) {
+function BasicButton({ input, setInput, name}) {
   return (
     <div>
-      <Button variant="contained" onClick={() => setLanguage(language)}>
+      <Button variant="contained" onClick={() => setInput(input)}>
         {name}
       </Button>
     </div>
