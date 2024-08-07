@@ -6,13 +6,13 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { charsArrys } from "./charsArrys";
 
-export default function RadioButtonsGroup({ language, setLanguage }) {
+export default function RadioButtonsGroup({ setLanguage, setDir }) {
   const [value, setValue] = React.useState("en");
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    // const arr =[...event.target.value]
     setLanguage(charsArrys[event.target.value]);
+    event.target.value === "he" ? setDir("rtl") : setDir("ltr");
   };
 
   return (

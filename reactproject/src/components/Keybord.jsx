@@ -9,19 +9,25 @@ import { charsArrys } from "./charsArrys";
 
 function Keybord() {
   const [language, setLanguage] = useState(charsArrys.en);
-
   const [input, setInput] = useState("");
   const [fontSize, setFontSIze] = useState("20px");
   const [fontColor, setfontColor] = useState("white");
+  const [dir, setDir] = useState("ltr");
 
   const [flag, setFlag] = useState(true);
 
   return (
     <>
       <div className="select">
-        <RadioButtonsGroup language={language} setLanguage={setLanguage} />
+        <RadioButtonsGroup
+          language={language}
+          setLanguage={setLanguage}
+          setDir={setDir}
+        />
       </div>
+
       <div
+        dir={dir}
         className="output-area"
         style={{ fontSize: fontSize, color: fontColor }}
       >
@@ -51,7 +57,6 @@ function Keybord() {
           shift
         </button>
 
-
         <button
           className="backspace key"
           onClick={() => {
@@ -60,20 +65,18 @@ function Keybord() {
         >
           Backspace
         </button>
-        
+
         <button
           className="backspace key"
           onClick={() => {
             setInput("");
           }}
         >
-          {" "}
           Clear
         </button>
       </div>
 
-      
-      <div style={{gap:"15px", padding:"15px"}}>
+      <div style={{ gap: "15px", padding: "15px" }}>
         <Stack spacing={2} direction="row" className="select">
           <TextStyler
             fontSize={fontSize}
