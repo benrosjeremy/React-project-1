@@ -121,6 +121,7 @@ function Keybord() {
           <option value="green">🟢</option>
         </select>
         <RadioButtonsGroup input={input} setInput={setInput} />
+        <div></div>
       </div>
     </>
   );
