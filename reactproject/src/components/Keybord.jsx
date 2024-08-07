@@ -9,13 +9,14 @@ import { charsArrys } from "./charsArrys";
 
 function Keybord() {
   const [language, setLanguage] = useState(charsArrys.en);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState([]);
   const [fontSize, setFontSIze] = useState("20px");
   const [fontColor, setfontColor] = useState("white");
   const [dir, setDir] = useState("ltr");
 
   const [flag, setFlag] = useState(true);
 
+ 
   return (
     <>
       <div className="select">
@@ -29,20 +30,31 @@ function Keybord() {
       <div
         dir={dir}
         className="output-area"
-        style={{ fontSize: fontSize, color: fontColor }}
+        
       >
-        {input}
+        {input.map((char, i) => (
+          <span key={i} style={{ fontSize: char.fontSize, color: char.fontColor }}>
+            {char.char}
+          </span>
+        ))}
       </div>
 
       <div className="keyboard">
         {language.map((char, i) => (
-          <Key key={i} char={char} input={input} setInput={setInput} />
+          <Key
+            key={i}
+            char={char}
+            input={input}
+            setInput={setInput}
+            fontSize={fontSize}
+            fontColor={fontColor}
+          />
         ))}
 
         <button
           className="space key"
           onClick={() => {
-            setInput(input + " ");
+            setInput([...input,{char:" ", fontSize, fontColor}]);
           }}
         ></button>
 
@@ -60,7 +72,7 @@ function Keybord() {
         <button
           className="backspace key"
           onClick={() => {
-            setInput(input.slice(0, input.length - 1));
+            setInput(input.slice(0, -1));
           }}
         >
           Backspace
@@ -69,13 +81,12 @@ function Keybord() {
         <button
           className="backspace key"
           onClick={() => {
-            setInput("");
+            setInput([]);
           }}
         >
           Clear
         </button>
       </div>
-
       <div style={{ gap: "15px", padding: "15px" }}>
         <Stack spacing={2} direction="row" className="select">
           <TextStyler
@@ -85,12 +96,12 @@ function Keybord() {
             setfontColor={setfontColor}
           />
           <BasicButton
-            input={input.toLocaleUpperCase()}
+            input={input}
             name="uperr all"
             setInput={setInput}
           />
           <BasicButton
-            input={input.toLocaleLowerCase()}
+            input={input}
             name="lower all"
             setInput={setInput}
           />
