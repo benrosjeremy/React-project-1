@@ -16,16 +16,14 @@ function Keybord() {
 
   return (
     <>
-    <div className="select">
-          <RadioButtonsGroup
-            language={language}
-            setLanguage={setLanguage}
-            setDir={setDir}
-          />
-        </div>
+      <div className="select">
+        <RadioButtonsGroup
+          language={language}
+          setLanguage={setLanguage}
+          setDir={setDir}
+        />
+      </div>
       <div className="container">
-        
-
         <div>
           <div dir={dir} className="output-area">
             {input.map((char, i) => (
@@ -33,10 +31,12 @@ function Keybord() {
                 key={i}
                 style={{ fontSize: char.fontSize, color: char.fontColor }}
               >
-                {char.char}
+                {char.char === "/n" ? <br></br> : char.char}
               </span>
             ))}
+            <span className="cursor">&nbsp;</span>
           </div>
+
           <div className="keyboard">
             {charsArrys.numbers.map((char, i) => (
               <Key
@@ -71,10 +71,19 @@ function Keybord() {
             </button>
             <button
               className="backspace key"
+              onClick={() => {
+                setInput([...input, { char: "/n", fontSize, fontColor }]);
+              }}
+            >
+              Enter
+            </button>
+            <button
+              className="backspace key"
               onClick={() => setInput(input.slice(0, -1))}
             >
               Backspace
             </button>
+
             <button
               className="space key"
               onClick={() => {

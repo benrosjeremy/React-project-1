@@ -73,3 +73,16 @@ body {
   grid-column: span 2;
   font-size: 20px;
 }
+.cursor {
+  display: inline-block;
+  width: 2px;
+  background-color: #fff;
+  margin-left: 2px;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
