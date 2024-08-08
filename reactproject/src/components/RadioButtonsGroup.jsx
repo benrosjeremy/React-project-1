@@ -29,7 +29,7 @@ export default function RadioButtonsGroup({ setLanguage, setDir }) {
         <FormControlLabel value="he" control={<Radio />} label="Hebrew" />
         <FormControlLabel value="special" control={<Radio />} label="Symbol" />
         <FormControlLabel value="emoji" control={<Radio />} label="Emoji" />
-        <FormControlLabel value="numbers" control={<Radio />} label="Numbers" />
+        {/* <FormControlLabel value="numbers" control={<Radio />} label="Numbers" /> */}
       </RadioGroup>
     </FormControl>
   );

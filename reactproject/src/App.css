@@ -1,9 +1,15 @@
 body {
 }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App {
   text-align: center;
 }
-.select{
+.select {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,12 +17,12 @@ body {
 /* עיצוב כללי של המקלדת */
 .keyboard {
   display: grid;
-  grid-template-columns: repeat(12, 1fr); /* 10 עמודות */
-  gap: 10px;
+  grid-template-columns: repeat(10, 1fr); /* 10 עמודות */
+  gap: 6px;
   padding: 20px;
   background-color: #333;
   border-radius: 10px;
-  max-width: 850px;
+  max-width: 750px;
   margin: 0 auto;
 }
 
@@ -61,10 +67,9 @@ body {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 .space {
-  grid-column: span 8;
+  grid-column: span 6;
 }
-.backspace{
+.backspace {
   grid-column: span 2;
   font-size: 20px;
 }
-
